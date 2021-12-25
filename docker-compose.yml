@@ -16,6 +16,7 @@ services:
     volumes:
       - ./shell/install-scripts/:/config/custom-cont-init.d/:ro  # installation scripts
       - ./shell/oh-my-zsh-config/:/oh-my-zsh-config/:ro          # installation scripts
+      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                     # client ssh private key
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro             # client ssh public key
       - /tmp/yscialom_devenv_shell_sshdata:/config/ssh_host_keys # server ssh keys
       - /tmp/yscialom_devenv_shell_codedata:/config/workspace    # workspace

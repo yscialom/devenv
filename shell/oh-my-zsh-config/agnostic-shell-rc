@@ -22,3 +22,10 @@ if [ -n "${SSH_CONNECTION}" ]; then
 else
     export EDITOR='vim'
 fi
+
+
+#
+## === DEV ===
+#
+eval "$(ssh-agent -s)"
+ssh-add /config/.ssh/id_rsa
