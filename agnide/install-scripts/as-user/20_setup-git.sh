@@ -17,3 +17,4 @@ git config --global user.email "${USER_EMAIL}"
 # setup git-ssh
 eval "$(ssh-agent -s)"
 ssh-add /config/.ssh/id_rsa
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
