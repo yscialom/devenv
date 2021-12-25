@@ -18,6 +18,12 @@ done
 
 # automatically connect
 cat >> ~/.bashrc <<EOF
+# Connects to ssh-agent
+eval "$(ssh-agent -s)"
+
+# Connects to shell
 ssh -p2222 -i ~/.ssh/id_rsa ${USER_NAME}@shell
+
+# Don't return to local bash
 exit
 EOF
