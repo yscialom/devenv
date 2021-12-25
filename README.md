@@ -1,2 +1,2 @@
-# devenv
-A ready to go development environment in a docker image
+# Description
+A ready-to-go development environment in docker containers
