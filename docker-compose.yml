@@ -1,0 +1,43 @@
+version: "3"
+services:
+  shell:
+    image: lscr.io/linuxserver/openssh-server:version-8.6_p1-r3
+    container_name: yscialom_devenv_shell
+    hostname: yscialom_devenv_shell
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - PUBLIC_KEY_FILE=/public_key_file
+      - SUDO_ACCESS=false
+      - PASSWORD_ACCESS=false
+      - USER_NAME=yscialom
+      - VERSION=0.1.0
+    ports:
+      - "13722:2222"
+    volumes:
+      - ./shell/install-scripts/:/config/custom-cont-init.d/:ro
+      - ./shell/oh-my-zsh-config/:/oh-my-zsh-config/:ro
+      - /tmp/yscialom_devenv_shell_data:/config/ssh_host_keys
+      - ~/.ssh/id_rsa.pub:/public_key_file:ro
+      - ~/Projets:/workspace
+    networks:
+      - yscialom_devenv
+    restart: unless-stopped
+  agnide:
+    image: lscr.io/linuxserver/code-server
+    container_name: yscialom_devenv_agnide
+    ports:
+      - "13780:2443"
+    environment:
+      - PUID=1000
+      - GUID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ~/devenv/agnide:/config
+    networks:
+      - yscialom_devenv
+    restart: unless-stopped
+
+networks:
+  yscialom_devenv:
