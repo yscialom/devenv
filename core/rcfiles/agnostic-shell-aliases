@@ -1,0 +1,24 @@
+##
+# YSC aliases
+#
+
+#
+## === GNU TOOLS ===
+#
+# ls
+alias ls='/bin/ls --color=auto'
+alias l='ls -CF'
+alias ll='ls -alhF'
+# grep
+alias grep='/bin/grep --color=auto'
+alias rgrep='grep --recursive --line-number'
+# cd+...
+cdnew() { mkdir -p "${1:-new}" && cd "${1:-new}"; }
+cdtmp() { cd "$(mktemp -d)"; }
+# which / command
+alias which='command -v'
+
+# backup
+function bak () {
+	cp "$1" "$1.bak-$(date +'%Y%m%d-%H%M%S')"
+}
