@@ -3,38 +3,39 @@ services:
   shell:
     image: lscr.io/linuxserver/openssh-server:version-8.6_p1-r3
     container_name: yscialom_devenv_shell
-    hostname: yscialom_devenv_shell
+    hostname: shell
+    env_file:
+      - user.env
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-      - PUBLIC_KEY_FILE=/public_key_file
+      - PUBLIC_KEY_FILE=/config/.ssh/id_rsa.pub
       - SUDO_ACCESS=false
       - PASSWORD_ACCESS=false
-      - USER_NAME=yscialom
       - VERSION=0.1.0
     ports:
       - "13722:2222"
     volumes:
-      - ./shell/install-scripts/:/config/custom-cont-init.d/:ro
-      - ./shell/oh-my-zsh-config/:/oh-my-zsh-config/:ro
-      - /tmp/yscialom_devenv_shell_data:/config/ssh_host_keys
-      - ~/.ssh/id_rsa.pub:/public_key_file:ro
-      - ~/Projets:/workspace
+      - ./shell/install-scripts/:/config/custom-cont-init.d/:ro  # installation scripts
+      - ./shell/oh-my-zsh-config/:/oh-my-zsh-config/:ro          # installation scripts
+      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro             # client ssh public key
+      - /tmp/yscialom_devenv_shell_sshdata:/config/ssh_host_keys # server ssh keys
+      - /tmp/yscialom_devenv_shell_codedata:/config/workspace    # workspace
     networks:
       - yscialom_devenv
     restart: unless-stopped
+
   agnide:
-    image: lscr.io/linuxserver/code-server
+    image: lscr.io/linuxserver/code-server:3.12.0
     container_name: yscialom_devenv_agnide
+    hostname: code
     ports:
-      - "13780:2443"
-    environment:
-      - PUID=1000
-      - GUID=1000
-      - TZ=Europe/Paris
+      - "13780:8443"
+    env_file:
+      - user.env
     volumes:
-      - ~/devenv/agnide:/config
+      - ./agnide/install-scripts/:/config/custom-cont-init.d/:ro # installation scripts
+      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                     # client ssh private key
+      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro             # client ssh public key
+      - /tmp/yscialom_devenv_shell_codedata:/config/workspace    # workspace
     networks:
       - yscialom_devenv
     restart: unless-stopped
