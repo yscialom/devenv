@@ -8,4 +8,3 @@ Version: ${VERSION}
 More information: https://github.com/yscialom/devenv
 EOF
 
-rm -- $0

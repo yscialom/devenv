@@ -9,7 +9,9 @@ if [[ -f /ysc/installed ]] ; then
 fi
 
 # Install the installation scripts
-cp -r /ysc/install-scripts/* /config/custom-cont-init.d/.
+for script in $(ls /ysc/install-scripts/*.sh | sort | xargs) ; do
+    ${script}
+done
 
 # Register work done
 touch /ysc/installed

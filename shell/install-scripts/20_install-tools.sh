@@ -9,4 +9,3 @@ apk add --no-cache --upgrade \
     wget curl netcat-openbsd net-tools \
     && rm -rf -- /tmp/*
 
-rm -- $0
