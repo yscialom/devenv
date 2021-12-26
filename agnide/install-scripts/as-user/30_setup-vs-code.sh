@@ -10,4 +10,5 @@ fi
 cd
 
 set -x
+mkdir -p /config/data/User
 cp -f /config/vs-vode/User/settings.json /config/data/User/settings.json
