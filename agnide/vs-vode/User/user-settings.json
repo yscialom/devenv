@@ -1,0 +1,18 @@
+{
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "workbench.colorTheme": "Default Dark+",
+    "editor.renderWhitespace": "trailing",
+    "files.exclude": {
+        "**/*~": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "telemetry.enableTelemetry": false,
+    "git.enableCommitSigning": true,
+    "git.fetchOnPull": true,
+    "git.followTagsWhenSync": true
+}

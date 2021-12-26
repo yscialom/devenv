@@ -34,6 +34,7 @@ services:
       - user.env
     volumes:
       - ./agnide/install-scripts/:/config/custom-cont-init.d/:ro # installation scripts
+      - ./agnide/vs-code/User:/config/data/User                  # User settings
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                     # client ssh private key
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro             # client ssh public key
       - /tmp/yscialom_devenv_shell_codedata:/config/workspace    # workspace
