@@ -33,3 +33,5 @@ NERDS_FONT_VERSION="2.1.0" \
 
 # Set zsh as default shell
 sed -i "/^${USER_NAME}/s/bash\$/zsh/" /etc/passwd
+
+rm -- $0

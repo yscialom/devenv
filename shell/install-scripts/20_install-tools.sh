@@ -8,3 +8,5 @@ apk add --no-cache --upgrade \
     xxd dos2unix \
     wget curl netcat-openbsd net-tools \
     && rm -rf -- /tmp/*
+
+rm -- $0
