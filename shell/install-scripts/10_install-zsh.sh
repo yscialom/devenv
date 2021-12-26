@@ -5,7 +5,7 @@ set -x
 # install base tools
 apk add --no-cache \
     wget=1.21.1-r1 \
-    git=2.32.0-r0 \
+    git=2.32.0-r0 git-perl=2.32.0-r0 \
     zsh=5.8-r2 \
     dpkg \
     && rm -rf -- /tmp/*
