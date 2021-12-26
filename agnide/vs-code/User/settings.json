@@ -1,5 +1,5 @@
 {
-    "workbench.startupEditor": "None",
+    "workbench.startupEditor": "none",
     "git.confirmSync": false,
     "git.autofetch": true,
     "workbench.colorTheme": "Default Dark+",
@@ -15,5 +15,7 @@
     "telemetry.enableTelemetry": false,
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
-    "git.followTagsWhenSync": true
+    "git.followTagsWhenSync": true,
+    "terminal.integrated.fontFamily": "'FontAwesome', 'Source Code Pro for Powerline'",
+    "editor.fontFamily": "'FontAwesome', 'Source Code Pro for Powerline'"
 }
