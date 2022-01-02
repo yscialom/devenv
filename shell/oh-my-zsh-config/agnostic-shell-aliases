@@ -18,3 +18,8 @@ alias which='command -v'
 function bak () {
 	cp "$1" "$1.bak-$(date +'%Y%m%d-%H%M%S')"
 }
+
+#
+## === DEV ===
+#
+alias python=python3

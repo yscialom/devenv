@@ -9,7 +9,7 @@ if [[ -f /ysc/installed ]] ; then
 fi
 
 # Install the installation scripts
-for script in $(ls /ysc/install-scripts/*.sh | sort | xargs) ; do
+for script in $(ls /ysc/install-scripts/**/*.sh | sort | xargs) ; do
     ${script}
 done
 
