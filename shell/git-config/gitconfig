@@ -1,0 +1,26 @@
+[user]
+    signingkey = 60D4B5C1E7AD8C1C
+[core]
+    editor = vim
+    autocrlf = input
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[alias]
+    #info
+    last = log -1 HEAD
+    l = log --oneline --graph --decorate --show-signature --relative-date
+    st = status --short --branch
+    d = diff --word-diff
+    cr = diff --cached
+    #branches
+    ri = rebase -i --autosquash
+    #remote
+    upush = !git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+    dpush = push origin --delete
+    fpush = !git dpush $(git rev-parse --abbrev-ref HEAD) && git upush
+[push]
+    default = simple
+[pull]
+	ff = only

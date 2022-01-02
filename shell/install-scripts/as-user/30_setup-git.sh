@@ -11,6 +11,7 @@ cd
 
 set -x
 # setup git
+cp /ysc/git-config/gitconfig ~/.gitconfig
 git config --global user.name "${USER_NAME}"
 git config --global user.email "${USER_EMAIL}"
 
