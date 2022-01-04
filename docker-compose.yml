@@ -14,15 +14,15 @@ services:
     ports:
       - "13722:2222"
     volumes:
-      - ./common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
-      - ./shell/install-scripts:/ysc/install-scripts/00_shell:ro                                      # installation scripts
-      - ./ansible/install-scripts:/ysc/install-scripts/10_ansible:ro                                  # installation scripts
-      - ./shell/oh-my-zsh-config:/ysc/oh-my-zsh-config:ro                                             # user settings
-      - ./shell/git-config:/ysc/git-config:ro                                                         # git settings
-      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                          # client ssh private key
-      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                  # client ssh public key
-      - ${HOST_WORK_DIR}/shell.sshdata:/config/ssh_host_keys                                          # server ssh keys
-      - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                             # workspace
+      - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
+      - ./src/shell/install-scripts:/ysc/install-scripts/00_shell:ro                                      # installation scripts
+      - ./src/ansible/install-scripts:/ysc/install-scripts/10_ansible:ro                                  # installation scripts
+      - ./src/shell/oh-my-zsh-config:/ysc/oh-my-zsh-config:ro                                             # user settings
+      - ./src/shell/git-config:/ysc/git-config:ro                                                         # git settings
+      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                              # client ssh private key
+      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
+      - ${HOST_WORK_DIR}/shell.sshdata:/config/ssh_host_keys                                              # server ssh keys
+      - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
     networks:
       - yscialom_devenv
     restart: unless-stopped
@@ -36,13 +36,13 @@ services:
     env_file:
       - .env
     volumes:
-      - ./common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
-      - ./agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
-      - ./agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
-      - ./agnide/fonts/fonts.html:/ysc/fonts/fonts.html:ro                                            # fonts
-      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                          # client ssh private key
-      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                  # client ssh public key
-      - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                             # workspace
+      - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
+      - ./src/agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
+      - ./src/agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
+      - ./src/agnide/fonts/fonts.html:/ysc/fonts/fonts.html:ro                                            # fonts
+      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                              # client ssh private key
+      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
+      - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
     networks:
       - yscialom_devenv
     restart: unless-stopped
