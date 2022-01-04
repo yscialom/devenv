@@ -12,3 +12,5 @@ A ready-to-go development environment in docker containers.
 
 # Usage
 - With your preferred web browser, go to [http://localhost:13780](http://localhost:13780).
+
+![Example of VS Code in Firefox](doc/ysc-devenv-2022-01-04.png)
