@@ -5,7 +5,7 @@ services:
     container_name: yscialom_devenv_shell
     hostname: shell
     env_file:
-      - user.env
+      - .env
     environment:
       - PUBLIC_KEY_FILE=/config/.ssh/id_rsa.pub
       - SUDO_ACCESS=true
@@ -34,11 +34,12 @@ services:
     ports:
       - "13780:8443"
     env_file:
-      - user.env
+      - .env
     volumes:
       - ./common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
       - ./agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
       - ./agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
+      - ./agnide/fonts/fonts.html:/ysc/fonts/fonts.html:ro                                            # fonts
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                          # client ssh private key
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                  # client ssh public key
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                             # workspace

@@ -16,6 +16,6 @@
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
     "git.followTagsWhenSync": true,
-    "terminal.integrated.fontFamily": "'FontAwesome', 'Source Code Pro for Powerline'",
-    "editor.fontFamily": "'Source Code Pro for Powerline', 'FontAwesome'"
+    "terminal.integrated.fontFamily": "'Source Code Pro'",
+    "editor.fontFamily": "'Source Code Pro'"
 }
