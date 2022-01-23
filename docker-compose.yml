@@ -53,11 +53,14 @@ services:
     build:
       context: src/arduino
       args:
+        - PUID=${PUID}
         - arduino_cli_version=0.20.2
-    image: yankelscialom/arduino-cli-esp8266:0.20.2_0.1.0
+        - sketchbook_path=/arduino
+    image: yankelscialom/arduino-cli-esp8266:0.20.2_0.1.1
     container_name: yscialom_devenv_arduino
-    volumes: []
+    volumes:
       # sources + binary(?) + usb
+      - ${HOST_WORK_DIR}/shell.codedata/arduino:/arduino
 
 networks:
   yscialom_devenv:
