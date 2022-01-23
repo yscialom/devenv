@@ -1,4 +1,4 @@
 CUSTOM=~/.oh-my-zsh/custom
 
-source ${CUSTOM}/.agnostic-shell-rc
-source ${CUSTOM}/.agnostic-shell-aliases
+source ~/.agnostic-shell-rc
+source ~/.agnostic-shell-aliases

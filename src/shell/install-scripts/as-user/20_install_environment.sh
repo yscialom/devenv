@@ -13,7 +13,6 @@ set -x
 CUSTOM=~/.oh-my-zsh/custom
 
 rm -f -- ${CUSTOM}/*.zsh
-ln -s /ysc/oh-my-zsh-config/agnostic-shell-rc      ${CUSTOM}/.agnostic-shell-rc
-ln -s /ysc/oh-my-zsh-config/agnostic-shell-aliases ${CUSTOM}/.agnostic-shell-aliases
-ln -s /ysc/oh-my-zsh-config/custom.zsh             ${CUSTOM}/.
-
+cp /ysc/oh-my-zsh-config/agnostic-shell-rc      ~/.agnostic-shell-rc
+cp /ysc/oh-my-zsh-config/agnostic-shell-aliases ~/.agnostic-shell-aliases
+ln -s /ysc/oh-my-zsh-config/custom.zsh          ${CUSTOM}/.
