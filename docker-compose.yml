@@ -47,5 +47,15 @@ services:
       - yscialom_devenv
     restart: unless-stopped
 
+  arduino:
+    build:
+      context: src/arduino
+      args:
+        - arduino_cli_version=0.20.2
+    image: yankelscialom/arduino-cli-esp8266:0.20.2_0.1.0
+    container_name: yscialom_devenv_arduino
+    volumes: []
+      # sources + binary(?) + usb
+
 networks:
   yscialom_devenv:
