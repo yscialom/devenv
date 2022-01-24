@@ -55,9 +55,10 @@ services:
       context: src/arduino
       args:
         - PUID=${PUID}
+        - PGID=${DIALOUT_PGID}
         - arduino_cli_version=0.20.2
         - sketchbook_path=/arduino
-    image: yankelscialom/arduino-cli-esp8266:0.20.2_0.1.1
+    image: yankelscialom/arduino-cli-esp8266:0.20.2_0.1.2
     container_name: yscialom_devenv_arduino
     volumes:
       # sources + binary(?) + usb

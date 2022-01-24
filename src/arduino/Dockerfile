@@ -1,6 +1,7 @@
 From debian:stretch
 
-ARG PUID=1000
+ARG PUID=1000 # "host" user id
+ARG PGID=20   # "host" dialout group id
 ARG arduino_cli_version=0.20.2
 ARG sketchbook_path=/arduino
 
@@ -10,11 +11,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/${arduino_cli_version}/install.sh | sh
 
-RUN useradd --create-home --home-dir /home/arduino --uid ${PUID} arduino
+RUN useradd --create-home --home-dir /home/arduino --uid ${PUID} --groups ${PGID} arduino
 USER arduino
 
 RUN arduino-cli config init --overwrite --additional-urls https://arduino.esp8266.com/stable/package_esp8266com_index.json \
     && arduino-cli config set directories.user ${sketchbook_path} \
+    && arduino-cli config set sketch.always_export_binaries true \
     && arduino-cli core update-index \
     && arduino-cli core install esp8266:esp8266
 
