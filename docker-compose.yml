@@ -11,8 +11,6 @@ services:
       - SUDO_ACCESS=true
       - PASSWORD_ACCESS=false
       - VERSION=0.1.0
-    ports:
-      - "13722:2222"
     volumes:
       - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
       - ./src/shell/install-scripts:/ysc/install-scripts/00_shell:ro                                      # installation scripts
@@ -23,16 +21,12 @@ services:
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
       - ${HOST_WORK_DIR}/shell.sshdata:/config/ssh_host_keys                                              # server ssh keys
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
-    networks:
-      - yscialom_devenv
     restart: unless-stopped
 
   agnide:
     image: lscr.io/linuxserver/code-server:3.12.0
     container_name: yscialom_devenv_agnide
     hostname: agnide
-    ports:
-      - "13780:8443"
     env_file:
       - .env
     volumes:
@@ -43,9 +37,4 @@ services:
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                              # client ssh private key
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
-    networks:
-      - yscialom_devenv
     restart: unless-stopped
-
-networks:
-  yscialom_devenv:
