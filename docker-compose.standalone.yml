@@ -1,0 +1,16 @@
+version: "3"
+services:
+  shell:
+    ports:
+      - "13722:2222"
+    networks:
+      - yscialom_devenv
+
+  agnide:
+    ports:
+      - "13780:8443"
+    networks:
+      - yscialom_devenv
+
+networks:
+  yscialom_devenv:
