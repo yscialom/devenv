@@ -24,16 +24,16 @@ services:
     restart: unless-stopped
 
   agnide:
-    image: lscr.io/linuxserver/code-server:3.12.0
+    build:
+      context: src
+      dockerfile: agnide/Dockerfile
     container_name: yscialom_devenv_agnide
     hostname: agnide
     env_file:
       - .env
     volumes:
-      - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
       - ./src/agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
       - ./src/agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
-      - ./src/agnide/fonts/fonts.html:/ysc/fonts/fonts.html:ro                                            # fonts
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                              # client ssh private key
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace

@@ -6,7 +6,7 @@ set -x
 apk add --no-cache \
     wget=1.21.1-r1 \
     git=2.32.0-r0 git-perl=2.32.0-r0 \
-    zsh=5.8-r2 \
+    zsh=5.8.1-r0 \
     dpkg=1.20.9-r0 \
     && rm -rf -- /tmp/*
 
