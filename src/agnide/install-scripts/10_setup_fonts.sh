@@ -13,4 +13,3 @@ grep -rl "style-src 'self' 'unsafe-inline'" "${install_dir}" \
 
 grep -rl "font-src 'self' blob:" "${install_dir}" \
     | sudo xargs sed -i "s/font-src 'self' blob:/font-src 'self' blob: fonts.gstatic.com/g"
-

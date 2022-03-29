@@ -21,6 +21,8 @@ services:
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
       - ${HOST_WORK_DIR}/shell.sshdata:/config/ssh_host_keys                                              # server ssh keys
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
+    networks:
+      - pinanas_default
     restart: unless-stopped
 
   agnide:
@@ -37,4 +39,22 @@ services:
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                              # client ssh private key
       - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
+    networks:
+      - pinanas_default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.code-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.code-secure.entrypoints=https"
+      - "traefik.http.routers.code-secure.middlewares=authelia@docker"
+      - "traefik.http.routers.code-secure.rule=Host(`code.home.scialom.org`)"
+      - "traefik.http.routers.code-secure.service=code"
+      - "traefik.http.routers.code-secure.tls=true"
+      - "traefik.http.routers.code.entrypoints=http"
+      - "traefik.http.routers.code.middlewares=code-https-redirect"
+      - "traefik.http.routers.code.rule=Host(`code.home.scialom.org`)"
+      - "traefik.http.services.code.loadbalancer.server.port=8443"
     restart: unless-stopped
+
+networks:
+  pinanas_default:
+    external: true
