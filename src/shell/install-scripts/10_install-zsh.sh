@@ -4,10 +4,10 @@ set -x
 
 # install base tools
 apk add --no-cache \
-    wget=1.21.1-r1 \
-    git=2.32.0-r0 git-perl=2.32.0-r0 \
-    zsh=5.8.1-r0 \
-    dpkg=1.20.9-r0 \
+    'wget<1.30' \
+    'git<2.40' 'git-perl<2.40' \
+    'zsh<6' \
+    'dpkg<1.30' \
     && rm -rf -- /tmp/*
 
 # install Fira Code from Nerd fonts
