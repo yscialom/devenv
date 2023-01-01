@@ -34,7 +34,7 @@ services:
     volumes:
       - ./src/agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
       - ./src/agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
-      - ~/.ssh/id_rsa:/config/.ssh/id_rsa:ro                                                              # client ssh private key
-      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub:ro                                                      # client ssh public key
+      - ~/.ssh/id_rsa:/config/.ssh/id_rsa                                                                 # client ssh private key
+      - ~/.ssh/id_rsa.pub:/config/.ssh/id_rsa.pub                                                         # client ssh public key
       - ${HOST_WORK_DIR}/shell.codedata:/config/workspace                                                 # workspace
     restart: unless-stopped

@@ -4,7 +4,7 @@ set -o pipefail
 
 # hack from @ManiaciaChao, see <https://github.com/coder/code-server/issues/1374#issuecomment-1014203683>
 install_dir=/app/code-server
-mainpage="${install_dir}/vendor/modules/code-oss-dev/out/vs/code/browser/workbench/workbench.html"
+mainpage="$(find "${install_dir}" -type f -name workbench.html)"
 
 sed -i "s,<head>,<head><style>@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');</style>," "${mainpage}"
 
