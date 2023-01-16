@@ -1,7 +1,7 @@
 version: "3"
 services:
   shell:
-    image: lscr.io/linuxserver/openssh-server:version-8.6_p1-r3
+    image: lscr.io/linuxserver/openssh-server:9.0_p1-r2-ls100
     container_name: yscialom_devenv_shell
     hostname: shell
     env_file:
@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
 
   agnide:
-    image: lscr.io/linuxserver/code-server:4.9.0
+    image: lscr.io/linuxserver/code-server:4.9.1
     container_name: yscialom_devenv_agnide
     hostname: agnide
     env_file:
