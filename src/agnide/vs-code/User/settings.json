@@ -16,6 +16,6 @@
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
     "git.followTagsWhenSync": true,
-    "terminal.integrated.fontFamily": "'Fira Code'",
-    "editor.fontFamily": "'Fira Code'"
+    "terminal.integrated.fontFamily": "'UbuntuMono'",
+    "editor.fontFamily": "'FUbuntuMono'"
 }
