@@ -6,10 +6,10 @@ set -o pipefail
 install_dir=/app/code-server
 mainpage="$(find "${install_dir}" -type f -name workbench.html)"
 
-sed -i "s,<head>,<head><style>@import url('https://fonts.googleapis.com/css?family=Fira+Code');</style>," "${mainpage}"
+sed -i "s,<head>,<head><style>@import url('https://github.com/ryanoasis/nerd-fonts/raw/v2.2.2/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono%20Windows%20Compatible.ttf');</style>," "${mainpage}"
 
 grep -rl "style-src 'self' 'unsafe-inline'" "${install_dir}" \
-    | sudo xargs sed -i "s/style-src 'self' 'unsafe-inline'/style-src 'self' 'unsafe-inline' fonts.googleapis.com/g"
+    | sudo xargs sed -i "s/style-src 'self' 'unsafe-inline'/style-src 'self' 'unsafe-inline' github.com/g"
 
 grep -rl "font-src 'self' blob:" "${install_dir}" \
-    | sudo xargs sed -i "s/font-src 'self' blob:/font-src 'self' blob: fonts.gstatic.com/g"
+    | sudo xargs sed -i "s/font-src 'self' blob:/font-src 'self' blob: github.com/g"
