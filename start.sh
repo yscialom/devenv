@@ -34,4 +34,7 @@ if [[ ! -r "${override}" ]] ; then
     usage 3 "error: unknown file '${override}'"
 fi
 
+trap "docker rmi busybox" EXIT
+docker run --rm --mount type=bind,source=${PWD}/src/common/custom-cont-init.d/master-install.sh,target=/master-install.sh busybox chown 0:0 /master-install.sh
+
 docker-compose -f docker-compose.yml -f "${override}" ${OPT_COMMAND} $*

@@ -1,7 +1,7 @@
 version: "3"
 services:
   shell:
-    image: lscr.io/linuxserver/openssh-server:version-8.6_p1-r3
+    image: lscr.io/linuxserver/openssh-server:9.0_p1-r2-ls100
     container_name: yscialom_devenv_shell
     hostname: shell
     env_file:
@@ -10,9 +10,9 @@ services:
       - PUBLIC_KEY_FILE=/config/.ssh/id_rsa.pub
       - SUDO_ACCESS=true
       - PASSWORD_ACCESS=false
-      - VERSION=0.1.0
+      - VERSION=1.0.0
     volumes:
-      - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh:ro # master install
+      - ./src/common/custom-cont-init.d/master-install.sh:/custom-cont-init.d/master-install.sh           # master install
       - ./src/shell/install-scripts:/ysc/install-scripts/00_shell:ro                                      # installation scripts
       - ./src/ansible/install-scripts:/ysc/install-scripts/10_ansible:ro                                  # installation scripts
       - ./src/shell/oh-my-zsh-config:/ysc/oh-my-zsh-config:ro                                             # user settings
@@ -24,14 +24,13 @@ services:
     restart: unless-stopped
 
   agnide:
-    build:
-      context: src
-      dockerfile: agnide/Dockerfile
+    image: lscr.io/linuxserver/code-server:4.9.1
     container_name: yscialom_devenv_agnide
     hostname: agnide
     env_file:
       - .env
     volumes:
+      - ./src/common/custom-cont-init.d/master-install.sh:/custom-cont-init.d/master-install.sh           # master install
       - ./src/agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
       - ./src/agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa                                                                 # client ssh private key
