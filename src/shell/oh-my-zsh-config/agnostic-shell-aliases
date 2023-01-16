@@ -2,7 +2,7 @@
 ## === GNU TOOLS ===
 #
 # ls
-alias ls='/bin/exa --icons'
+alias ls='exa --icons'
 alias l='ls -F'
 alias ll='ls -alhF'
 # grep
