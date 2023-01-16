@@ -12,7 +12,7 @@ services:
       - PASSWORD_ACCESS=false
       - VERSION=0.1.0
     volumes:
-      - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh    # master install
+      - ./src/common/custom-cont-init.d/master-install.sh:/custom-cont-init.d/master-install.sh           # master install
       - ./src/shell/install-scripts:/ysc/install-scripts/00_shell:ro                                      # installation scripts
       - ./src/ansible/install-scripts:/ysc/install-scripts/10_ansible:ro                                  # installation scripts
       - ./src/shell/oh-my-zsh-config:/ysc/oh-my-zsh-config:ro                                             # user settings
@@ -30,7 +30,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./src/common/custom-cont-init.d/master-install.sh:/config/custom-cont-init.d/master-install.sh    # master install
+      - ./src/common/custom-cont-init.d/master-install.sh:/custom-cont-init.d/master-install.sh           # master install
       - ./src/agnide/install-scripts:/ysc/install-scripts/agnide:ro                                       # installation scripts
       - ./src/agnide/vs-code:/ysc/vs-code:ro                                                              # user settings
       - ~/.ssh/id_rsa:/config/.ssh/id_rsa                                                                 # client ssh private key
