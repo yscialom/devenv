@@ -2,12 +2,12 @@
 ## === GNU TOOLS ===
 #
 # ls
-alias ls='/bin/ls --color=auto'
-alias l='ls -CF'
+alias ls='/bin/exa --icons'
+alias l='ls -F'
 alias ll='ls -alhF'
 # grep
 alias grep='/bin/grep --color=auto'
-alias rgrep='grep --recursive --line-number'
+alias rgrep='grep -r --line-number'
 # cd+...
 cdnew() { mkdir -p "${1:-new}" && cd "${1:-new}"; }
 cdtmp() { cd "$(mktemp -d)"; }
