@@ -1,0 +1,25 @@
+#
+## === GNU TOOLS ===
+#
+# ls
+alias ls='exa --icons'
+alias l='ls -F'
+alias ll='ls -alhF'
+# grep
+alias grep='/bin/grep --color=auto'
+alias rgrep='grep -r --line-number'
+# cd+...
+cdnew() { mkdir -p "${1:-new}" && cd "${1:-new}"; }
+cdtmp() { cd "$(mktemp -d)"; }
+# which / command
+alias which='command -v'
+
+# backup
+function bak () {
+	cp "$1" "$1.bak-$(date +'%Y%m%d-%H%M%S')"
+}
+
+#
+## === DEV ===
+#
+alias python=python3

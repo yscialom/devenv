@@ -1,0 +1,31 @@
+#
+## === PATH ===
+#
+if [[ -z ${OS_DEFAULT_PATH} ]] ; then
+    OS_DEFAULT_PATH="${PATH}"
+fi
+export PATH="${OS_DEFAULT_PATH}\
+:/home/${USER}/bin\
+"
+
+
+#
+## === PREFERENCES ===
+#
+# You may need to manually set your language environment
+export LANG=en_GB.UTF-8
+export LANGUAGE=en_GB:en
+
+# Preferred editor for local and remote sessions
+if [ -n "${SSH_CONNECTION}" ]; then
+    export EDITOR='vim'
+else
+    export EDITOR='vim'
+fi
+
+
+#
+## === DEV ===
+#
+eval "$(ssh-agent -s)"
+ssh-add /config/.ssh/id_rsa
