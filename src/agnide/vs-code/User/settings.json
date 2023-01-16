@@ -16,6 +16,8 @@
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
     "git.followTagsWhenSync": true,
-    "terminal.integrated.fontFamily": "'Source Code Pro'",
-    "editor.fontFamily": "'Source Code Pro'"
+    "terminal.integrated.fontFamily": "'UbuntuMono NFM'",
+    "terminal.integrated.fontSize": 18,
+    "editor.fontFamily": "'UbuntuMono NFM'",
+    "editor.fontSize": 15
 }
