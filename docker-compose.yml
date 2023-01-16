@@ -10,7 +10,7 @@ services:
       - PUBLIC_KEY_FILE=/config/.ssh/id_rsa.pub
       - SUDO_ACCESS=true
       - PASSWORD_ACCESS=false
-      - VERSION=0.1.0
+      - VERSION=1.0.0
     volumes:
       - ./src/common/custom-cont-init.d/master-install.sh:/custom-cont-init.d/master-install.sh           # master install
       - ./src/shell/install-scripts:/ysc/install-scripts/00_shell:ro                                      # installation scripts
