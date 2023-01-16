@@ -6,7 +6,7 @@ set -o pipefail
 install_dir=/app/code-server
 mainpage="$(find "${install_dir}" -type f -name workbench.html)"
 
-sed -i "s,<head>,<head><style>@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');</style>," "${mainpage}"
+sed -i "s,<head>,<head><style>@import url('https://fonts.googleapis.com/css?family=Fira+Code');</style>," "${mainpage}"
 
 grep -rl "style-src 'self' 'unsafe-inline'" "${install_dir}" \
     | sudo xargs sed -i "s/style-src 'self' 'unsafe-inline'/style-src 'self' 'unsafe-inline' fonts.googleapis.com/g"
