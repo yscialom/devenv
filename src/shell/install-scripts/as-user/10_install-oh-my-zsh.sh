@@ -11,6 +11,7 @@ cd
 set -x
 # install oh-my-zsh
 wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=/config/.oh-my-zsh zsh || true
+[[ -f ~/.config/zsh/.zshrc ]] && rm -f -- ~/.config/zsh/.zshrc
 
 # install oh-my-zsh plugins and theme
 ZSH_CUSTOM=~/.oh-my-zsh/custom
