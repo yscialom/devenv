@@ -8,7 +8,6 @@ apk add --no-cache \
     'git<2.40' 'git-perl<2.40' \
     'zsh<6' \
     'dpkg<1.30' \
-    'curl' 'vim' 'batcat' 'exa' 'stow' \
     && rm -rf -- /tmp/*
 
 # install Fira Code from Nerd fonts
