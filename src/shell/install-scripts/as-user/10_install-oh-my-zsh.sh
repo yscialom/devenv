@@ -9,9 +9,8 @@ fi
 cd
 
 set -x
-
 # install oh-my-zsh
-wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | zsh || true
+wget -qO- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=/config/.oh-my-zsh zsh || true
 
 # install oh-my-zsh plugins and theme
 ZSH_CUSTOM=~/.oh-my-zsh/custom
@@ -32,5 +31,4 @@ GITSTATUS_VERSION="1.0.0" \
     && rm gitstatus.tgz
 
 # override files
-cp -f -- /ysc/oh-my-zsh-config/zshrc    ~/.zshrc
 cp -f -- /ysc/oh-my-zsh-config/p10k.zsh ~/.p10k.zsh

@@ -4,5 +4,5 @@ set -x
 
 # install ansible
 apk add --no-cache --upgrade \
-    ansible=2.10.7-r0 \
+    'ansible<5.9.0' \
     && rm -rf -- /tmp/*
