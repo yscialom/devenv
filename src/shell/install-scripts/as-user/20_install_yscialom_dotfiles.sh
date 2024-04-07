@@ -11,7 +11,10 @@ cd
 set -x
 # install yscialom/dotfiles
 dotfiles=~/workspace/dotfiles
-git clone --depth=1 https://github.com/yscialom/dotfiles.git $dotfiles \
-    && cd $dotfiles \
-    && rm -f -- ~/.zshrc \
-    && ./apply.sh
+if [ -d $dotfiles ] ; then
+    cd $dotfiles && git reset --hard && git checkout develop
+else
+    git clone --depth=1 https://github.com/yscialom/dotfiles.git $dotfiles
+    cd $dotfiles
+fi
+rm -f -- ~/.zshrc && ./apply.sh

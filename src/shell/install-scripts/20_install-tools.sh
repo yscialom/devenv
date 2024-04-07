@@ -7,5 +7,5 @@ apk add --no-cache --upgrade \
     nano vim emacs \
     xxd dos2unix \
     wget curl netcat-openbsd net-tools \
-    exa bat stow \
+    exa bat stow zoxide \
     && rm -rf -- /tmp/*
