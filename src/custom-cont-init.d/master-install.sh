@@ -10,7 +10,7 @@ fi
 
 # Install the installation scripts
 apt update
-for script in $(ls /ysc/install-scripts/**/*.sh | sort | xargs) ; do
+for script in $(ls /ysc/install-scripts/*.sh | sort | xargs) ; do
     ${script}
 done
 apt clean
