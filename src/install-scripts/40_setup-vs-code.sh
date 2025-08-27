@@ -11,4 +11,4 @@ cd
 
 set -x
 mkdir -p /config/data/User
-cp -f /ysc/vs-code/User/settings.json /config/data/User/settings.json
+cp -f /ysc/config/code-server-settings.json /config/data/User/settings.json
