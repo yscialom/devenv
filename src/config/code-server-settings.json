@@ -16,6 +16,7 @@
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
     "git.followTagsWhenSync": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.fontFamily": "'UbuntuMono NFM'",
     "terminal.integrated.fontSize": 18,
     "editor.fontFamily": "'UbuntuMono NFM'",

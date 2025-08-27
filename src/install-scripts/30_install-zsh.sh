@@ -26,8 +26,5 @@ NERDS_FONT_VERSION="2.1.0" \
     && echo "$FIRA_CODE_BOLD_DOWNLOAD_SHA256 $FONT_DIR/Fura Code Bold Nerd Font Complete.ttf" | sha256sum -c - \
     && echo "$FIRA_CODE_RETINA_DOWNLOAD_SHA256 $FONT_DIR/Fura Code Retina Nerd Font Complete.ttf" | sha256sum -c -
 
-# Set zsh as default shell
-sed -i "/^${USER_NAME}/s/false\$/zsh/" /etc/passwd
-
 # change home ownership
 chown -R abc:abc ~abc
