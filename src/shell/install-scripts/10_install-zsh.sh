@@ -3,7 +3,7 @@ set -o pipefail
 set -x
 
 # install base tools
-pt install -y wget git zsh dpkg
+apt install -y wget git zsh dpkg
 
 # install Fira Code from Nerd fonts
 NERDS_FONT_VERSION="2.1.0" \
