@@ -9,7 +9,7 @@ function usage () {
     echo "-e ENV ............... set environment to ENV (default: standalone)"
     echo
     echo "ENV:"
-    /bin/ls docker-compose.*.yml | sed 's/docker-compose\.\(.*\)\.yml/  - \1/g'
+    /bin/ls docker-compose.*.yaml | sed 's/docker-compose\.\(.*\)\.yml/  - \1/g'
     exit $1
 }
 
@@ -26,7 +26,7 @@ done
 shift $((OPTIND-1))
 
 
-override=docker-compose.${OPT_ENVIRONMENT}.yml
+override=docker-compose.${OPT_ENVIRONMENT}.yaml
 if [[ -z "${override}" ]] ; then
     usage 2 "error: missing mandatory argument: -e ENV"
 fi
@@ -37,4 +37,4 @@ fi
 trap "docker rmi busybox" EXIT
 docker run --rm --mount type=bind,source=${PWD}/src/common/custom-cont-init.d/master-install.sh,target=/master-install.sh busybox chown 0:0 /master-install.sh
 
-docker-compose -f docker-compose.yml -f "${override}" ${OPT_COMMAND} $*
+docker compose -f docker-compose.yaml -f "${override}" ${OPT_COMMAND} $*
