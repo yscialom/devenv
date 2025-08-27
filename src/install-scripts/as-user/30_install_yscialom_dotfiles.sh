@@ -9,6 +9,7 @@ fi
 cd
 
 set -x
+
 # install yscialom/dotfiles
 dotfiles=~/workspace/dotfiles
 if [ -d $dotfiles ] ; then

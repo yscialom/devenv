@@ -1,10 +1,5 @@
-version: "3"
 services:
-  shell:
-    networks:
-      - pinanas_pinanas
-
-  agnide:
+  code:
     networks:
       - pinanas_pinanas
     labels:

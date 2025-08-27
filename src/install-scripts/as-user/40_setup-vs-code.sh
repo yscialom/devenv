@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 set -o pipefail
 
 if [[ ${EUID} == 0 ]] ; then
@@ -9,7 +10,5 @@ fi
 cd
 
 set -x
-# setup git-ssh
-eval "$(ssh-agent -s)"
-ssh-add /config/.ssh/id_rsa
-ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+mkdir -p /config/data/User
+cp -f /ysc/config/code-server-settings.json /config/data/User/settings.json

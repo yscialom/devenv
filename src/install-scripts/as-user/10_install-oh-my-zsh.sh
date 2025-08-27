@@ -32,4 +32,4 @@ GITSTATUS_VERSION="1.0.0" \
     && rm gitstatus.tgz
 
 # override files
-cp -f -- /ysc/oh-my-zsh-config/p10k.zsh ~/.p10k.zsh
+cp -f -- /ysc/config/p10k.zsh ~/.p10k.zsh
