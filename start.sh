@@ -35,6 +35,6 @@ if [[ ! -r "${override}" ]] ; then
 fi
 
 trap "docker rmi busybox" EXIT
-docker run --rm --mount type=bind,source=${PWD}/src/common/custom-cont-init.d/master-install.sh,target=/master-install.sh busybox chown 0:0 /master-install.sh
+docker run --rm --mount type=bind,source=${PWD}/src/custom-cont-init.d/master-install.sh,target=/master-install.sh busybox chown 0:0 /master-install.sh
 
 docker compose -f docker-compose.yaml -f "${override}" ${OPT_COMMAND} $*
