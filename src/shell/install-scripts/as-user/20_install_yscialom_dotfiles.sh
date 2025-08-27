@@ -9,8 +9,6 @@ fi
 cd
 
 set -x
-# install dependencies
-apt install -y stow duf
 
 # install yscialom/dotfiles
 dotfiles=~/workspace/dotfiles
