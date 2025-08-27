@@ -3,12 +3,7 @@ set -o pipefail
 set -x
 
 # install base tools
-apk add --no-cache \
-    'wget<1.30' \
-    'git<2.40' 'git-perl<2.40' \
-    'zsh<6' \
-    'dpkg<1.30' \
-    && rm -rf -- /tmp/*
+pt install -y wget git zsh dpkg
 
 # install Fira Code from Nerd fonts
 NERDS_FONT_VERSION="2.1.0" \
