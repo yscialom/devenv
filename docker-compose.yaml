@@ -23,7 +23,7 @@ services:
     restart: unless-stopped
 
   agnide:
-    image: lscr.io/linuxserver/code-server:4.9.1
+    image: lscr.io/linuxserver/code-server:4.103.2
     container_name: yscialom_devenv_agnide
     hostname: agnide
     env_file:
