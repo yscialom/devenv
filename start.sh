@@ -9,7 +9,7 @@ function usage () {
     echo "-e ENV ............... set environment to ENV (default: standalone)"
     echo
     echo "ENV:"
-    /bin/ls docker-compose.*.yaml | sed 's/docker-compose\.\(.*\)\.yml/  - \1/g'
+    /bin/ls docker-compose.*.yaml | sed 's/docker-compose\.\(.*\)\.yaml/  - \1/g'
     exit $1
 }
 
