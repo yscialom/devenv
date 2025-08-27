@@ -1,0 +1,32 @@
+name: Local Ollama
+version: 1.0.0
+schema: v1
+models:
+  - name: GPT-oss
+    provider: ollama
+    apiBase: http://192.168.1.1:11434
+    model: gpt-oss:20b
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: qwen2.5-coder-7b
+    provider: ollama
+    apiBase: http://192.168.1.1:11434
+    model: qwen2.5-coder-7b
+    roles:
+      - autocomplete
+  - name: snowflake-arctic-embed:335m
+    provider: ollama
+    apiBase: http://192.168.1.1:11434
+    model: snowflake-arctic-embed:335m
+    roles:
+      - embed
+context:
+  - provider: code
+  - provider: docs
+  - provider: diff
+  - provider: terminal
+  - provider: problems
+  - provider: folder
+  - provider: codebase
