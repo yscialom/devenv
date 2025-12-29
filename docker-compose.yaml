@@ -3,6 +3,9 @@ services:
     image: lscr.io/linuxserver/code-server:4.103.2
     container_name: code
     hostname: code
+    privileged: true # allows docker-in-docker
+    environment:
+      - DOCKER_MODS: linuxserver/mods:universal-docker-in-docker
     env_file:
       - .env
     volumes:
