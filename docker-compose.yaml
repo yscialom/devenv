@@ -5,7 +5,7 @@ services:
     hostname: code
     privileged: true # allows docker-in-docker
     environment:
-      - DOCKER_MODS: linuxserver/mods:universal-docker-in-docker
+      DOCKER_MODS: linuxserver/mods:universal-docker-in-docker
     env_file:
       - .env
     volumes:
